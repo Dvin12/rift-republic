@@ -1,3 +1,3 @@
-export default function accountSettings() {
+export default function AccountSettings() {
   return <div>accountSettings</div>;
 }
