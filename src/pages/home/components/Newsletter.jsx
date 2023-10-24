@@ -4,31 +4,31 @@ import Subscribe from "./Subscribe";
 const brands = [
   {
     name: "Fender",
-    image: "./images/fender.png",
+    image: "./images/brands/fender.png",
     link: "https://www.fender.com/",
   },
 
   {
     name: "Gibson",
-    image: "./images/gibson.png",
+    image: "./images/brands/gibson.png",
     link: "https://www.gibson.com/",
   },
 
   {
     name: "Ibanez",
-    image: "./images/ibanez.png",
+    image: "./images/brands/ibanez.png",
     link: "https://www.ibanez.com/",
   },
 
   {
     name: "Jackson",
-    image: "./images/jackson.png",
+    image: "./images/brands/jackson.png",
     link: "https://www.jacksonguitars.com/",
   },
 
   {
     name: "Yamaha",
-    image: "./images/yamaha.png",
+    image: "./images/brands/yamaha.png",
     link: "https://usa.yamaha.com/",
   },
 ];
@@ -37,7 +37,7 @@ export default function Newsletter() {
   return (
     <section>
       <div className="relative ">
-        <img src="./images/parker-coffman-GgsG8aNLgjQ-unsplash.jpg" alt="" />
+        <img src="./images/brands/background.jpg" alt="" />
         <div className="absolute top-0 grid items-center w-full h-full grid-cols-2 gap-4 px-20 bg-opacity-50 place-content-center bg-darkBlack">
           {brands.map((brand, i) => (
             <BrandCard brand={brand} key={i} num={i} />

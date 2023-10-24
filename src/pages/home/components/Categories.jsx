@@ -3,27 +3,27 @@ import CategoryCard from "./CategoryCard";
 const category = [
   {
     name: "Acoustic",
-    image: "./images/jefferson-santos-fCEJGBzAkrU-unsplash.jpg",
+    image: "./images/categories/acoustic.jpg",
   },
 
   {
     name: "Electric",
-    image: "./images/simon-weisser-phS37wg8cQg-unsplash.jpg",
+    image: "./images/categories/electric.jpg",
   },
 
   {
     name: "Bass",
-    image: "./images/oleg-ivanov-G_3NA_UoVyo-unsplash.jpg",
+    image: "./images/categories/bass.jpg",
   },
 
   {
     name: "Amps & FX",
-    image: "./images/yeh-che-wei-IK9RX8nFSWE-unsplash.jpg",
+    image: "./images/categories/ampsFX.jpg",
   },
 
   {
     name: "Accessories",
-    image: "./images/rombo-OujU8QemtQM-unsplash.jpg",
+    image: "./images/categories/accessories.jpg",
   },
 ];
 
