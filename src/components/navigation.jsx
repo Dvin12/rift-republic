@@ -1,3 +1,11 @@
+import NavDesktop from "./NavDesktop";
+import NavMobile from "./NavMobile";
+
 export default function Navigation() {
-  return <div>navigation</div>;
+  return (
+    <nav>
+      <NavMobile />
+      <NavDesktop />
+    </nav>
+  );
 }

@@ -8,14 +8,15 @@ import Cart from "./pages/cart/cart";
 import Login from "./pages/login/login";
 import AccountSettings from "./pages/accountSettings/accountSettings";
 import Home from "./pages/home/home";
+import Main from "./components/Main";
 
 function Layout() {
   return (
-    <main>
+    <Main>
       <Navigation />
       <Outlet />
       <Footer />
-    </main>
+    </Main>
   );
 }
 
