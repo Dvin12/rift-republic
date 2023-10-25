@@ -25,7 +25,7 @@ export default function Product() {
   return (
     <>
       {placeholder.map((item, i) => (
-        <section key={i} className="p-6">
+        <section key={i} className="px-6 pt-24">
           <Images item={item} num={i} />
           <Description item={item} />
         </section>

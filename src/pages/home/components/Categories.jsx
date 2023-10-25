@@ -2,34 +2,34 @@ import CategoryCard from "./CategoryCard";
 
 const category = [
   {
-    name: "Acoustic",
+    name: "acoustic",
     image: "./images/categories/acoustic.jpg",
   },
 
   {
-    name: "Electric",
+    name: "electric",
     image: "./images/categories/electric.jpg",
   },
 
   {
-    name: "Bass",
+    name: "bass",
     image: "./images/categories/bass.jpg",
   },
 
   {
-    name: "Amps & FX",
+    name: "amps-fx",
     image: "./images/categories/ampsFX.jpg",
   },
 
   {
-    name: "Accessories",
+    name: "accessories",
     image: "./images/categories/accessories.jpg",
   },
 ];
 
 export default function Categories() {
   return (
-    <section className="flex flex-col gap-5 p-4">
+    <section className="flex flex-col gap-5 px-4 py-6">
       {category.map((categoryCard, i) => (
         <CategoryCard categoryCard={categoryCard} key={i} />
       ))}

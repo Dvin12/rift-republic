@@ -49,15 +49,15 @@ export default function Products() {
   }, [type, navigate]);
 
   return (
-    <section>
-      <h2 className="my-6 text-2xl font-medium text-center capitalize text-lightGrey">
-        {type}
+    <section className="pt-16">
+      <h2 className="py-6 text-2xl font-medium text-center capitalize text-lightGrey">
+        {type === "amps-fx" ? "Amps & FX" : type}
       </h2>
       <div className="flex items-center justify-between px-6 ">
         <Filter />
         <Sort />
       </div>
-      <div className="grid grid-cols-2 gap-4 px-4 my-10 ">
+      <div className="grid grid-cols-2 gap-5 px-4 my-8 ">
         {placeholder.map((item) => (
           <Item key={item.id} item={item} />
         ))}

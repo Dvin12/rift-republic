@@ -36,14 +36,14 @@ const brands = [
 export default function Newsletter() {
   return (
     <section>
-      <div className="relative ">
+      <article className="relative ">
         <img src="./images/brands/background.jpg" alt="" />
         <div className="absolute top-0 grid items-center w-full h-full grid-cols-2 gap-4 px-20 bg-opacity-50 place-content-center bg-darkBlack">
           {brands.map((brand, i) => (
             <BrandCard brand={brand} key={i} num={i} />
           ))}
         </div>
-      </div>
+      </article>
       <Subscribe />
     </section>
   );

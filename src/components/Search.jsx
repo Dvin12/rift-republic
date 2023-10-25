@@ -5,10 +5,10 @@ export default function Search() {
     <div className="relative">
       <input
         type="text"
-        className="w-full px-3 py-3 text-lg rounded-sm"
+        className="w-full p-3 text-lg rounded-sm"
         placeholder="Search for a product"
       />
-      <button className="absolute text-2xl right-3 top-1/4">
+      <button className="absolute text-3xl right-4 top-1/4">
         <HiOutlineMagnifyingGlass />
       </button>
     </div>
