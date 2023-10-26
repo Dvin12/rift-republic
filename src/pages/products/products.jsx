@@ -57,7 +57,7 @@ export default function Products() {
         <Filter />
         <Sort />
       </div>
-      <div className="grid grid-cols-2 gap-5 px-4 my-8 ">
+      <div className="grid grid-cols-2 gap-5 px-4 my-5 ">
         {placeholder.map((item) => (
           <Item key={item.id} item={item} />
         ))}
