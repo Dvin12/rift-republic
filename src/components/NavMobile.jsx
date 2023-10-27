@@ -36,12 +36,6 @@ export default function NavMobile() {
       >
         <Search />
         <ul className="flex flex-col justify-center gap-10 my-10 text-3xl tracking-tight text-lightGrey">
-          <li onClick={handleClick}>
-            <Link to={`/login`} className="flex items-center gap-1 text-6xl ">
-              <HiUserCircle />
-              <span className="text-3xl">Login</span>
-            </Link>
-          </li>
           <li className="border-b-[1px]" onClick={handleClick}>
             <Link to={`products/acoustic`}>Acoustic</Link>
           </li>

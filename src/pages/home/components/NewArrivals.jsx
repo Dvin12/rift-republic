@@ -1,6 +1,8 @@
 import NewArrivalCard from "./NewArrivalCard";
+import { IoIosArrowForward } from "react-icons/io";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import { useRef } from "react";
 
 const placeholder = [
   {
@@ -30,8 +32,16 @@ const placeholder = [
 ];
 
 export default function NewArrivals() {
+  const splideRef = useRef(null);
+
+  const nextSlide = () => {
+    if (splideRef.current) {
+      splideRef.current.go("+1");
+    }
+  };
+
   return (
-    <section className="">
+    <section className="relative">
       <div>
         <span className="text-xl font-semibold text-lightGrey">
           New arrivals
@@ -39,6 +49,7 @@ export default function NewArrivals() {
         <div className=" bg-lightGrey w-[240px] h-[2px]"></div>
       </div>
       <Splide
+        ref={splideRef}
         className="py-4 "
         options={{
           autoplay: true,
@@ -59,6 +70,12 @@ export default function NewArrivals() {
           </SplideSlide>
         ))}
       </Splide>
+      <button
+        className="absolute text-4xl top-1/2 -right-[17%] text-lightGrey"
+        onClick={nextSlide}
+      >
+        <IoIosArrowForward />
+      </button>
     </section>
   );
 }

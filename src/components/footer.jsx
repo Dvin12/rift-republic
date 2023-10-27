@@ -5,9 +5,13 @@ export default function Footer() {
   return (
     <footer className="flex flex-col gap-6 pb-4 bg-darkGrey">
       <section className="flex flex-col items-center justify-center pt-6 text-center text-lightGrey">
-        <span className="text-3xl font-medium font-Koulen">RIFT REPUBLIC</span>
-        <span>Los Santos, San Adreas USA</span>
-        <ul className="flex items-center justify-center gap-4 text-3xl mt-7">
+        <Link to={"/"}>
+          <span className="text-3xl font-medium font-Koulen">
+            RIFT REPUBLIC
+          </span>
+        </Link>
+
+        <ul className="flex items-center justify-center gap-4 mt-4 text-3xl">
           <li>
             <a href="#">
               <FaXTwitter />
@@ -53,19 +57,33 @@ export default function Footer() {
         <div className="w-[15%] h-[1px] bg-lightGrey "></div>
         <ul className="flex flex-col gap-2 my-2 text-lg">
           <li>
-            <a href="https://www.fender.com/">Fender</a>
+            <a href="https://www.fender.com/" target="_blank" rel="noreferrer">
+              Fender
+            </a>
           </li>
           <li>
-            <a href="https://www.gibson.com/">Gibson</a>
+            <a href="https://www.gibson.com/" target="_blank" rel="noreferrer">
+              Gibson
+            </a>
           </li>
           <li>
-            <a href="https://www.jacksonguitars.com/">Jackson</a>
+            <a
+              href="https://www.jacksonguitars.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Jackson
+            </a>
           </li>
           <li>
-            <a href="https://www.ibanez.com/">Ibanez</a>
+            <a href="https://www.ibanez.com/" target="_blank" rel="noreferrer">
+              Ibanez
+            </a>
           </li>
           <li>
-            <a href="https://usa.yamaha.com/">Yamaha</a>
+            <a href="https://usa.yamaha.com/" target="_blank" rel="noreferrer">
+              Yamaha
+            </a>
           </li>
         </ul>
       </section>
