@@ -3,50 +3,48 @@ import { useNavigate, useParams } from "react-router-dom";
 import Filter from "./components/Filter";
 import Sort from "./components/Sort";
 import Item from "./components/Item";
+import { useDispatch, useSelector } from "react-redux";
+import { setItems } from "../../redux/slice";
 
-const placeholder = [
-  {
-    id: 1,
-    name: "Gibson Les Paul Classic",
-    strings: 6,
-    price: 2800,
-    image: "../images/placeholder1.png",
-  },
+// WHAT I NEED TO DO HERE?
 
-  {
-    id: 2,
-    name: "Fender Telecaster",
-    strings: 6,
-    price: 1400,
-    image: "../images/placeholder2.png",
-  },
+// I need to fetch data from my strapi server, then map with Item component and pass the data there as a prop.
 
-  {
-    id: 3,
-    name: "Fender Telecaster",
-    strings: 5,
-    price: 800,
-    image: "../images/placeholder3.png",
-  },
+// HOW TO DO THAT?
 
-  {
-    id: 4,
-    name: "Fender Telecaster",
-    strings: 5,
-    price: 800,
-    image: "../images/placeholder3.png",
-  },
-];
+// 1. I need to make an async function and then fetch the data.
+
+// 2. Then I need to use useEffect hook so that it would trigger the async function.
 
 export default function Products() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { type } = useParams();
+  const items = useSelector((state) => state.cart.items);
+
+  const filteredItems = items.filter(
+    (item) => item.attributes.category === type
+  );
+  console.log(items);
 
   useEffect(() => {
     if (!type) {
       navigate("/products/acoustic");
     }
   }, [type, navigate]);
+
+  async function getItems() {
+    const items = await fetch(
+      "http://localhost:1337/api/items?populate=thumbnail",
+      { method: "GET" }
+    );
+    const data = await items.json();
+    dispatch(setItems(data.data));
+  }
+
+  useEffect(() => {
+    getItems();
+  }, []);
 
   return (
     <section className="pt-16">
@@ -58,8 +56,8 @@ export default function Products() {
         <Sort />
       </div>
       <div className="grid grid-cols-2 gap-5 px-4 my-5 ">
-        {placeholder.map((item) => (
-          <Item key={item.id} item={item} />
+        {filteredItems.map((item) => (
+          <Item item={item} key={item.id} />
         ))}
       </div>
     </section>

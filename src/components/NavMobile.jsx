@@ -1,13 +1,15 @@
 import { useState } from "react";
-import { HiOutlineMenu, HiUserCircle } from "react-icons/hi";
+import { HiOutlineMenu } from "react-icons/hi";
 import { PiShoppingCartSimpleLight } from "react-icons/pi";
 import { AiOutlineClose } from "react-icons/ai";
 
 import { FaInstagram, FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 import Search from "./Search";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function NavMobile() {
+  const cart = useSelector((state) => state.cart.cart);
   const [isActive, setIsActive] = useState(false);
 
   function handleClick() {
@@ -24,7 +26,7 @@ export default function NavMobile() {
           <Link to={`/cart`}>
             <PiShoppingCartSimpleLight />
             <div className="absolute -top-1 right-0 w-[22px] h-[22px] bg-black rounded-full text-sm flex items-center justify-center">
-              0
+              {cart.length}
             </div>
           </Link>
         </button>

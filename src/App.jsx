@@ -7,7 +7,7 @@ import {
 import Navigation from "./components/navigation";
 import Footer from "./components/footer";
 import Error from "./pages/error/Error";
-import Products from "./pages/products/products";
+
 import Product from "./pages/product/product";
 import Cart from "./pages/cart/cart";
 import Home from "./pages/home/home";
@@ -15,10 +15,11 @@ import Main from "./components/Main";
 import { useEffect } from "react";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import slice from "./redux/slice";
+import cartReducer from "./redux/slice";
+import Products from "./pages/products/Products";
 
 const store = configureStore({
-  reducer: { cart: slice },
+  reducer: { cart: cartReducer },
 });
 
 function Layout() {
