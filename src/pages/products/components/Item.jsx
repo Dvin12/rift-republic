@@ -7,20 +7,17 @@ export default function Item({ item }) {
     },
   } = thumbnail;
 
-  console.log(thumbnail);
-
-  console.log(item);
   return (
-    <div className="w-full h-[230px]  bg-darkBlack flex flex-col items-center justify-end   relative overflow-hidden text-lightGrey font-medium">
+    <div className="w-full h-[320px]  bg-[#fff]   flex flex-col items-center justify-end   relative overflow-hidden text-lightGrey font-medium rounded-sm ">
       <img
         src={`http://localhost:1337${url}`}
         alt=""
-        className="absolute object-cover h-[220px] w-fit -top-10"
+        className="absolute object-cover h-[220px] w-fit top-1"
       />
-      <div className="relative flex flex-col w-full h-[22%] p-2 text-xs bg-darkGrey">
+      <div className="relative flex flex-col justify-start items-start w-full h-[27%] px-3 py-2 text-sm bg-darkBlack  ">
         <p>{model}</p>
 
-        <span className="absolute right-1 bottom-1 ">${price}</span>
+        <span className="absolute font-bold right-3 bottom-2 ">${price}</span>
       </div>
     </div>
   );

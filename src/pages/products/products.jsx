@@ -49,13 +49,13 @@ export default function Products() {
   return (
     <section className="pt-16">
       <h2 className="py-6 text-2xl font-medium text-center capitalize text-lightGrey">
-        {type === "amps-fx" ? "Amps & FX" : type}
+        {type === "ampFX" ? "Amps & FX" : type}
       </h2>
       <div className="flex items-center justify-between px-6 ">
         <Filter />
         <Sort />
       </div>
-      <div className="grid grid-cols-2 gap-5 px-4 my-5 ">
+      <div className="grid grid-cols-2 gap-5 px-6 my-5 ">
         {filteredItems.map((item) => (
           <Item item={item} key={item.id} />
         ))}

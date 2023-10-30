@@ -48,7 +48,7 @@ export default function NavMobile() {
             <Link to={`products/bass`}>Bass</Link>
           </li>
           <li className="border-b-[1px] " onClick={handleClick}>
-            <Link to={`products/amps-fx`}>Amps & FX</Link>
+            <Link to={`products/ampFX`}>Amps & FX</Link>
           </li>
           <li className="border-b-[1px] " onClick={handleClick}>
             <Link to={`products/accessories`}>Accessories</Link>
