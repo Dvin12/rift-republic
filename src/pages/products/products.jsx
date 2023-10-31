@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Filter from "./components/Filter";
 import Sort from "./components/Sort";
@@ -17,6 +17,9 @@ import { setItems } from "../../redux/slice";
 // 2. Then I need to use useEffect hook so that it would trigger the async function.
 
 export default function Products() {
+  const [filterValue, setFilterValue] = useState("");
+  const [sortValue, setSortValue] = useState("");
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { type } = useParams();
@@ -25,7 +28,6 @@ export default function Products() {
   const filteredItems = items.filter(
     (item) => item.attributes.category === type
   );
-  console.log(items);
 
   useEffect(() => {
     if (!type) {
@@ -52,8 +54,8 @@ export default function Products() {
         {type === "ampFX" ? "Amps & FX" : type}
       </h2>
       <div className="flex items-center justify-between px-6 ">
-        <Filter />
-        <Sort />
+        <Filter filterValue={filterValue} setFilterValue={setFilterValue} />
+        <Sort sortValue={sortValue} setSortValue={setSortValue} />
       </div>
       <div className="grid grid-cols-2 gap-5 px-6 my-5 ">
         {filteredItems.map((item) => (
