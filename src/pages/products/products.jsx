@@ -1,40 +1,30 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Filter from "./components/Filter";
-import Sort from "./components/Sort";
-import Item from "./components/Item";
 import { useDispatch, useSelector } from "react-redux";
 import { setItems } from "../../redux/slice";
 
-// WHAT I NEED TO DO HERE?
-
-// I need to fetch data from my strapi server, then map with Item component and pass the data there as a prop.
-
-// HOW TO DO THAT?
-
-// 1. I need to make an async function and then fetch the data.
-
-// 2. Then I need to use useEffect hook so that it would trigger the async function.
+import Filter from "./components/Filter";
+import Sort from "./components/Sort";
+import Item from "./components/Item";
 
 export default function Products() {
-  const [filterValue, setFilterValue] = useState("");
-  const [sortValue, setSortValue] = useState("");
+  const [filterValue, setFilterValue] = useState("all");
+  const [sortValue, setSortValue] = useState("highLow");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { type } = useParams();
+
   const items = useSelector((state) => state.cart.items);
 
-  const filteredItems = items.filter(
-    (item) => item.attributes.category === type
-  );
-
+  // if the type is not specified navigate to /acoustic
   useEffect(() => {
     if (!type) {
       navigate("/products/acoustic");
     }
   }, [type, navigate]);
 
+  // fetch data
   async function getItems() {
     const items = await fetch(
       "http://localhost:1337/api/items?populate=thumbnail",
@@ -48,13 +38,33 @@ export default function Products() {
     getItems();
   }, []);
 
+  // Filter by type and company name
+
+  const filteredItems = items.filter((item) => {
+    return (
+      item.attributes.category === type &&
+      (filterValue === "all" || item.attributes.company === filterValue)
+    );
+  });
+
+  // Get all the company names into an array that are from the type
+
+  const companies = [
+    ...new Set(filteredItems.map((item) => item.attributes.company)),
+  ];
+  console.log(companies);
+
   return (
     <section className="pt-16">
       <h2 className="py-6 text-2xl font-medium text-center capitalize text-lightGrey">
         {type === "ampFX" ? "Amps & FX" : type}
       </h2>
       <div className="flex items-center justify-between px-6 ">
-        <Filter filterValue={filterValue} setFilterValue={setFilterValue} />
+        <Filter
+          filterValue={filterValue}
+          setFilterValue={setFilterValue}
+          companies={companies}
+        />
         <Sort sortValue={sortValue} setSortValue={setSortValue} />
       </div>
       <div className="grid grid-cols-2 gap-5 px-6 my-5 ">
