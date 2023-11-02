@@ -12,7 +12,7 @@ export default function Item({ item }) {
       <img
         src={`http://localhost:1337${url}`}
         alt=""
-        className="absolute object-cover h-[220px] w-fit top-1"
+        className="absolute object-cover h-[210px] w-fit top-1"
       />
       <div className="relative flex flex-col justify-start items-start w-full h-[32%] px-3 py-2 text-sm bg-darkBlack  ">
         <p>{model}</p>

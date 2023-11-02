@@ -47,6 +47,14 @@ export default function Products() {
     );
   });
 
+  // Sort by price
+
+  if (sortValue === "highLow") {
+    filteredItems.sort((a, b) => b.attributes.price - a.attributes.price);
+  } else if (sortValue === "lowHigh") {
+    filteredItems.sort((a, b) => a.attributes.price - b.attributes.price);
+  }
+
   // Get all the company names into an array that are from the type
 
   const companies = [
