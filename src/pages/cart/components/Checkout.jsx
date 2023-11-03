@@ -1,4 +1,5 @@
-export default function Checkout() {
+export default function Checkout({ totalPrice }) {
+  console.log(totalPrice);
   return (
     <form className=" border-[1px] p-4 my-12">
       <section className="flex flex-col justify-center">
@@ -23,7 +24,7 @@ export default function Checkout() {
       <section>
         <div className="flex items-center justify-between font-semibold tracking-wide ">
           <span>TOTAL</span>
-          <span>$3220</span>
+          <span>${totalPrice}</span>
         </div>
       </section>
       <section className="flex flex-col items-center justify-center gap-3 mt-2 font-semibold tracking-wide">

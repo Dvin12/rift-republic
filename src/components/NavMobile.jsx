@@ -6,7 +6,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { FaInstagram, FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 import Search from "./Search";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function NavMobile() {
   const cart = useSelector((state) => state.cart.cart);

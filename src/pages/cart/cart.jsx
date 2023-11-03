@@ -1,34 +1,26 @@
+import { useSelector } from "react-redux";
 import CartItems from "./components/CartItems";
 import Checkout from "./components/Checkout";
 
-const placeholder = [
-  {
-    name: "Gibson Les Paul Classic",
-    strings: 6,
-    price: 2800,
-    quantity: 1,
-    image: "../images/placeholder1.png",
-  },
-
-  {
-    name: "Fender Guitar",
-    strings: 6,
-    price: 1400,
-    quantity: 1,
-    image: "../images/placeholder2.png",
-  },
-];
-
 export default function Cart() {
+  const cart = useSelector((state) => state.cart.cart);
+  const totalPrice = cart.reduce((total, item) => {
+    return total + item.attributes.price;
+  }, 0);
+
+  console.log(totalPrice);
+
   return (
     <section className="px-6 pt-24 text-lightGrey">
       <div className="flex items-center justify-between">
         <h4 className="text-lg font-medium">Cart</h4>
-        <span className="px-3 py-1 font-medium bg-darkGrey">2 items</span>
+        <span className="px-3 py-1 font-medium bg-darkGrey">
+          {cart.length} {cart.length === 1 ? "Item" : "Items"}
+        </span>
       </div>
       <section>
-        <CartItems placeholder={placeholder} />
-        <Checkout />
+        <CartItems cart={cart} />
+        <Checkout totalPrice={totalPrice} />
       </section>
     </section>
   );

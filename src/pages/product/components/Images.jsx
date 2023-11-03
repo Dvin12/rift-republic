@@ -3,8 +3,6 @@ import Image from "./Image";
 export default function Images({ item }) {
   const { images } = item.attributes;
 
-  console.log(images);
-
   return (
     <div>
       <div className=" bg-lightGrey">

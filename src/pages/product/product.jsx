@@ -6,7 +6,6 @@ import Description from "./components/Description";
 import Images from "./components/Images";
 
 export default function Product() {
-  const dispatch = useDispatch();
   const { productId } = useParams();
 
   const [item, setItem] = useState(null);
@@ -14,7 +13,7 @@ export default function Product() {
 
   async function getInfo() {
     const item = await fetch(
-      `http://localhost:1337/api/items/${productId}?populate=images`,
+      `http://localhost:1337/api/items/${productId}?populate=images&populate=thumbnail`,
       {
         method: "GET",
       }
