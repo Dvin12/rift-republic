@@ -1,35 +1,45 @@
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+
 import Description from "./components/Description";
 import Images from "./components/Images";
 
-const placeholder = [
-  {
-    name: "VINTERA® II '50S NOCASTER® ",
-    price: "1.199,00",
-    description:
-      "Revive the timeless sound of the '50s with the Vintera® II '50s Nocaster® and experience the iconic looks, inspiring feel and incomparable tone that only a Fender can deliver.",
-    images: [
-      {
-        image: "../images/product1.jpg",
-      },
-      {
-        image: "../images/product2.jpg",
-      },
-      {
-        image: "../images/product3.jpg",
-      },
-    ],
-  },
-];
-
 export default function Product() {
+  const dispatch = useDispatch();
+  const { productId } = useParams();
+
+  const [item, setItem] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  async function getInfo() {
+    const item = await fetch(
+      `http://localhost:1337/api/items/${productId}?populate=images`,
+      {
+        method: "GET",
+      }
+    );
+    const data = await item.json();
+    setItem(data.data);
+    setIsLoading(false);
+  }
+
+  useEffect(() => {
+    getInfo();
+  }, []);
+
   return (
     <>
-      {placeholder.map((item, i) => (
-        <section key={i} className="px-6 pt-24">
-          <Images item={item} num={i} />
-          <Description item={item} />
-        </section>
-      ))}
+      <section className="px-6 pt-24">
+        {isLoading ? (
+          <p>loading...</p>
+        ) : (
+          <>
+            <Images item={item} />
+            <Description item={item} />
+          </>
+        )}
+      </section>
     </>
   );
 }

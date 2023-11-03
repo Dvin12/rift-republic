@@ -60,7 +60,6 @@ export default function Products() {
   const companies = [
     ...new Set(filteredItems.map((item) => item.attributes.company)),
   ];
-  console.log(companies);
 
   return (
     <section className="pt-16">
