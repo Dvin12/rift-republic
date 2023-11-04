@@ -4,11 +4,11 @@ import Checkout from "./components/Checkout";
 
 export default function Cart() {
   const cart = useSelector((state) => state.cart.cart);
-  const totalPrice = cart.reduce((total, item) => {
-    return total + item.attributes.price;
-  }, 0);
 
-  console.log(totalPrice);
+  const subTotal = cart.reduce((total, item) => {
+    return total + item.count * item.attributes.price;
+  }, 0);
+  const totalPrice = subTotal + 20;
 
   return (
     <section className="px-6 pt-24 text-lightGrey">
@@ -20,7 +20,7 @@ export default function Cart() {
       </div>
       <section>
         <CartItems cart={cart} />
-        <Checkout totalPrice={totalPrice} />
+        <Checkout totalPrice={totalPrice} subTotal={subTotal} />
       </section>
     </section>
   );

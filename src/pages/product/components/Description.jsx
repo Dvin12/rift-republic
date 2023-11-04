@@ -20,7 +20,7 @@ export default function Description({ item }) {
           onClick={() =>
             dispatch(
               addToCart({
-                item: { ...item },
+                item: { ...item, count: 1 },
               })
             )
           }

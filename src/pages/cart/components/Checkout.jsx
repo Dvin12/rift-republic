@@ -1,5 +1,4 @@
-export default function Checkout({ totalPrice }) {
-  console.log(totalPrice);
+export default function Checkout({ totalPrice, subTotal }) {
   return (
     <form className=" border-[1px] p-4 my-12">
       <section className="flex flex-col justify-center">
@@ -12,7 +11,7 @@ export default function Checkout({ totalPrice }) {
         <div className="mt-2">
           <div className="flex items-center justify-between">
             <span>SUBTOTAL</span>
-            <span>$3200</span>
+            <span>${subTotal}</span>
           </div>
           <div className="flex items-center justify-between">
             <span>DELIVERY</span>
@@ -24,7 +23,7 @@ export default function Checkout({ totalPrice }) {
       <section>
         <div className="flex items-center justify-between font-semibold tracking-wide ">
           <span>TOTAL</span>
-          <span>${totalPrice}</span>
+          <span>${subTotal === 0 ? "0" : totalPrice}</span>
         </div>
       </section>
       <section className="flex flex-col items-center justify-center gap-3 mt-2 font-semibold tracking-wide">
