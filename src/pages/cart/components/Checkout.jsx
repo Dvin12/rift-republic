@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Checkout({ totalPrice, subTotal }) {
   return (
     <form className=" border-[1px] p-4 my-12">
@@ -26,11 +28,17 @@ export default function Checkout({ totalPrice, subTotal }) {
           <span>${subTotal === 0 ? "0" : totalPrice}</span>
         </div>
       </section>
-      <section className="flex flex-col items-center justify-center gap-3 mt-2 font-semibold tracking-wide">
-        <button className="w-full py-2 bg-lightGrey text-darkGrey">
-          Checkout
-        </button>
-        <button className=" border-[1px] w-full py-2">Continue shopping</button>
+      <section className="flex flex-col items-center justify-center w-full gap-3 mt-2 font-semibold tracking-wide">
+        <Link className="w-full" to={`/checkout`}>
+          <button className="w-full py-2 bg-lightGrey text-darkGrey">
+            Checkout
+          </button>
+        </Link>
+        <Link className="w-full" to={`/`}>
+          <button className=" border-[1px] w-full py-2">
+            Continue shopping
+          </button>
+        </Link>
       </section>
     </form>
   );

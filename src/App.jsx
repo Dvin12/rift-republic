@@ -18,6 +18,7 @@ import Product from "./pages/product/product";
 import Cart from "./pages/cart/Cart";
 import Home from "./pages/home/home";
 import Products from "./pages/products/Products";
+import Checkout from "./pages/checkout/Checkout";
 
 const store = configureStore({
   reducer: { cart: cartReducer },
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />,
       },
     ],
   },
