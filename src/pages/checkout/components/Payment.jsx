@@ -7,13 +7,14 @@ export default function Payment({
 }) {
   return (
     <section>
-      <h3>Contact Info</h3>
-      <section>
-        <div>
+      <h3 className="my-4 text-lg text-center text-lightGrey">Contact Info</h3>
+      <section className="flex flex-col gap-4">
+        <div className="flex flex-col gap-1 ">
+          <label className="text-sm text-lightGrey">Email</label>
           <input
+            className="w-full p-2 rounded"
             name="email"
             type="text"
-            placeholder="Email"
             onBlur={handleBlur}
             onChange={handleChange}
             value={values.email}
@@ -22,11 +23,12 @@ export default function Payment({
           />
         </div>
 
-        <div>
+        <div className="flex flex-col gap-1">
+          <label className="text-sm text-lightGrey">Phone Number</label>
           <input
+            className="w-full p-2 rounded"
             name="phoneNumber"
             type="text"
-            placeholder="Phone Number"
             onBlur={handleBlur}
             onChange={handleChange}
             value={values.phoneNumber}

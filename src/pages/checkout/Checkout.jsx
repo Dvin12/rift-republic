@@ -1,10 +1,11 @@
-import { Formik } from "formik";
-import * as yup from "yup";
-import Billing from "./components/Billing";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import Payment from "./components/Payment";
+import { Formik } from "formik";
 import { loadStripe } from "@stripe/stripe-js";
+
+import * as yup from "yup";
+import Billing from "./components/Billing";
+import Payment from "./components/Payment";
 
 const stripePromise = loadStripe(
   "pk_test_51N6bYMC3vJT26DRMcup97XlAwtC6kbBKbysnBTghZysC0ybS9svFWWijVc8lMA86tlguFDvK5iMhtq9ozoux0ijQ00mIPlulaI"
@@ -172,14 +173,20 @@ export default function Checkout() {
               />
             )}
 
-            <div>
+            <div className="flex items-center justify-between gap-2 mt-8">
               {activeStep === 1 && (
-                <button onClick={() => setActiveStep(activeStep - 1)}>
+                <button
+                  onClick={() => setActiveStep(activeStep - 1)}
+                  className=" border-lightGrey border-[1px] px-4 py-2 text-lightGrey "
+                >
                   Back
                 </button>
               )}
 
-              <button type="submit">
+              <button
+                type="submit"
+                className=" border-lightGrey border-[1px] px-4 py-2 text-lightGrey "
+              >
                 {activeStep === 0 ? "Next" : "Place Order"}
               </button>
             </div>

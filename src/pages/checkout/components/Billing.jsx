@@ -10,7 +10,9 @@ export default function Billing({
 }) {
   return (
     <section>
-      <h3>Billing Information</h3>
+      <h3 className="my-4 text-lg text-center text-lightGrey">
+        Billing Information
+      </h3>
       <div>
         <FormAddress
           type="billingAddress"
@@ -21,8 +23,8 @@ export default function Billing({
           handleChange={handleChange}
         />
       </div>
-      <div>
-        <label>
+      <div className="my-8">
+        <label className="flex items-center gap-2 text-lightGrey">
           <input
             type="checkbox"
             defaultChecked
@@ -39,7 +41,9 @@ export default function Billing({
       </div>
       {!values.shippingAddress.isSameAddress && (
         <div>
-          <h3>Shipping Information</h3>
+          <h3 className="my-4 text-lg text-center text-lightGrey">
+            Shipping Information
+          </h3>
           <div>
             <FormAddress
               type="shippingAddress"

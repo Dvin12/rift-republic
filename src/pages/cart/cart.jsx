@@ -19,8 +19,16 @@ export default function Cart() {
         </span>
       </div>
       <section>
-        <CartItems cart={cart} />
-        <Checkout totalPrice={totalPrice} subTotal={subTotal} />
+        {cart.length === 0 ? (
+          <p className="flex items-center justify-center text-center my-28">
+            There are no prodcuts
+          </p>
+        ) : (
+          <>
+            <CartItems cart={cart} />
+            <Checkout totalPrice={totalPrice} subTotal={subTotal} />
+          </>
+        )}
       </section>
     </section>
   );

@@ -19,11 +19,12 @@ export default function FormAddress({
     getIn(touched, formattedName(field)) && getIn(errors, formattedName(field));
 
   return (
-    <section>
-      <div>
+    <section className="flex flex-col gap-4">
+      <div className="flex flex-col gap-1">
+        <label className="text-sm text-lightGrey">First Name</label>
         <input
+          className="w-full p-2 rounded"
           type="text"
-          placeholder="First Name"
           onBlur={handleBlur}
           onChange={handleChange}
           value={values.firstName}
@@ -32,10 +33,11 @@ export default function FormAddress({
           helperText={formattedHelper("firstName")}
         />
       </div>
-      <div>
+      <div className="flex flex-col gap-1">
+        <label className="text-sm text-lightGrey">Last Name</label>
         <input
+          className="w-full p-2 rounded"
           type="text"
-          placeholder="Last Name"
           onBlur={handleBlur}
           onChange={handleChange}
           value={values.lastName}
@@ -45,10 +47,11 @@ export default function FormAddress({
         />
       </div>
 
-      <div>
+      <div className="flex flex-col gap-1">
+        <label className="text-sm text-lightGrey">Country</label>
         <input
+          className="w-full p-2 rounded"
           type="text"
-          placeholder="Country"
           onBlur={handleBlur}
           onChange={handleChange}
           value={values.country}
@@ -57,10 +60,11 @@ export default function FormAddress({
           helperText={formattedHelper("country")}
         />
       </div>
-      <div>
+      <div className="flex flex-col gap-1">
+        <label className="text-sm text-lightGrey">Street</label>
         <input
+          className="w-full p-2 rounded"
           type="text"
-          placeholder="Street"
           onBlur={handleBlur}
           onChange={handleChange}
           value={values.street1}
@@ -70,10 +74,13 @@ export default function FormAddress({
         />
       </div>
 
-      <div>
+      <div className="flex flex-col gap-1">
+        <label className="text-sm text-lightGrey">
+          Second Street (optional)
+        </label>
         <input
+          className="w-full p-2 rounded"
           type="text"
-          placeholder="Second Street (optional)"
           onBlur={handleBlur}
           onChange={handleChange}
           value={values.street2}
@@ -83,10 +90,11 @@ export default function FormAddress({
         />
       </div>
 
-      <div>
+      <div className="flex flex-col gap-1">
+        <label className="text-sm text-lightGrey">City</label>
         <input
+          className="w-full p-2 rounded"
           type="text"
-          placeholder="City"
           onBlur={handleBlur}
           onChange={handleChange}
           value={values.city}
@@ -96,10 +104,11 @@ export default function FormAddress({
         />
       </div>
 
-      <div>
+      <div className="flex flex-col gap-1">
+        <label className="text-sm text-lightGrey">State</label>
         <input
+          className="w-full p-2 rounded"
           type="text"
-          placeholder="State"
           onBlur={handleBlur}
           onChange={handleChange}
           value={values.state}
@@ -109,10 +118,11 @@ export default function FormAddress({
         />
       </div>
 
-      <div>
+      <div className="flex flex-col gap-1">
+        <label className="text-sm text-lightGrey">Zip Code</label>
         <input
+          className="w-full p-2 rounded"
           type="text"
-          placeholder="Zip Code"
           onBlur={handleBlur}
           onChange={handleChange}
           value={values.zipCode}
