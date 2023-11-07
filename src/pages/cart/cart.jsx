@@ -21,7 +21,7 @@ export default function Cart() {
       <section>
         {cart.length === 0 ? (
           <p className="flex items-center justify-center text-center my-28">
-            There are no prodcuts
+            There are no item in the cart
           </p>
         ) : (
           <>

@@ -132,10 +132,26 @@ export default function Checkout() {
       <h2 className="text-2xl font-medium text-center text-lightGrey">
         Checkout
       </h2>
-      <div className="flex items-center justify-between gap-6 my-4 text-lightGrey">
-        <span>Billing</span>
-        <div className="w-full h-[1px] bg-lightGrey"></div>
-        <span className=" text-opacity-40 text-lightGrey">Payment</span>
+      <div className="flex items-center justify-center gap-3 my-8 text-lightGrey">
+        <span
+          className={`px-3 py-2 font-medium text-lightGrey  ${
+            activeStep === 0
+              ? "bg-lightGrey text-darkBlack  border-none"
+              : " text-opacity-40 border-[1px]"
+          } duration-200`}
+        >
+          Billing
+        </span>
+
+        <span
+          className={` text-lightGrey font-medium  px-3 py-2 ${
+            activeStep === 0
+              ? "text-opacity-40 border-[1px]"
+              : " text-opacity-100 border-none bg-lightGrey text-darkBlack"
+          } duration-200`}
+        >
+          Payment
+        </span>
       </div>
       <Formik
         initialValues={initialValues}
