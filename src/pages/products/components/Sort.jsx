@@ -1,8 +1,8 @@
 export default function Sort({ sortValue, setSortValue }) {
   return (
     <section>
-      <label htmlFor="sort">Sort</label>
       <select
+        className="px-3 py-1 bg-darkBlack text-lightGrey"
         name="sort"
         id="sort"
         value={sortValue}

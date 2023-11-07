@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setItems } from "../../redux/slice";
 
@@ -62,7 +62,11 @@ export default function Products() {
   ];
 
   return (
-    <section className="pt-16">
+    <section className="pt-20">
+      <div className="px-6 text-lightGrey">
+        <Link to={"/"}>Home</Link> /{" "}
+        {type.charAt(0).toUpperCase() + type.slice(1)}
+      </div>
       <h2 className="py-6 text-2xl font-medium text-center capitalize text-lightGrey">
         {type === "ampFX" ? "Amps & FX" : type}
       </h2>
@@ -74,7 +78,7 @@ export default function Products() {
         />
         <Sort sortValue={sortValue} setSortValue={setSortValue} />
       </div>
-      <div className="grid grid-cols-2 gap-5 px-6 my-5 ">
+      <div className="grid grid-cols-2 gap-5 px-6 my-10 ">
         {filteredItems.map((item) => (
           <Item item={item} key={item.id} />
         ))}

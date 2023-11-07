@@ -17,7 +17,7 @@ const category = [
   },
 
   {
-    name: "amps-fx",
+    name: "ampFX",
     image: "./images/categories/ampsFX.jpg",
   },
 
