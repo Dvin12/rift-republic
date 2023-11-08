@@ -8,7 +8,7 @@ import Billing from "./components/Billing";
 import Payment from "./components/Payment";
 
 const stripePromise = loadStripe(
-  "pk_test_51N6bYMC3vJT26DRMcup97XlAwtC6kbBKbysnBTghZysC0ybS9svFWWijVc8lMA86tlguFDvK5iMhtq9ozoux0ijQ00mIPlulaI"
+  "pk_test_51N6bYMC3vJT26DRM3nL56LTLuFAW7pOW4JOwjfeOS83kh2eKlbIUs9FmhDq1mEZmNJzHHPSXwTGDKL7poYjPLWbG00gSkJynlx"
 );
 
 const initialValues = {
@@ -90,6 +90,7 @@ const checkoutSchema = [
 ];
 
 export default function Checkout() {
+  console.log(stripePromise);
   const [activeStep, setActiveStep] = useState(0);
   const cart = useSelector((state) => state.cart.cart);
 
@@ -118,7 +119,7 @@ export default function Checkout() {
     };
     const response = await fetch("http://localhost:1337/api/orders", {
       method: "POST",
-      headers: { "Content-type": "application/json" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(requestBody),
     });
     const session = await response.json();

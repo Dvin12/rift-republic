@@ -28,7 +28,7 @@ export default function Billing({
           <input
             type="checkbox"
             defaultChecked
-            values={values.shippingAddress.isSameAddress}
+            value={values.shippingAddress.isSameAddress}
             onChange={() =>
               setFieldValue(
                 "shippingAddress.isSameAddress",

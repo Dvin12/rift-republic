@@ -18,9 +18,19 @@ export default function Payment({
             onBlur={handleBlur}
             onChange={handleChange}
             value={values.email}
-            error={!!touched.email && !!errors.email}
-            helperText={touched.email && errors.email}
           />
+
+          {!!touched.email && !!errors.email && (
+            <div className="text-sm text-[#900]">
+              {!!touched.email && !!errors.email}
+            </div>
+          )}
+
+          {touched.email && errors.email && (
+            <div className="text-sm text-[#900]">
+              {touched.email && errors.email}
+            </div>
+          )}
         </div>
 
         <div className="flex flex-col gap-1">
@@ -32,9 +42,19 @@ export default function Payment({
             onBlur={handleBlur}
             onChange={handleChange}
             value={values.phoneNumber}
-            error={!!touched.phoneNumber && !!errors.phoneNumber}
-            helperText={touched.phoneNumber && errors.phoneNumber}
           />
+
+          {!!touched.phoneNumber && !!errors.phoneNumber && (
+            <div className="text-sm text-[#900]">
+              {!!touched.phoneNumber && !!errors.phoneNumber}
+            </div>
+          )}
+
+          {touched.phoneNumber && errors.phoneNumber && (
+            <div className="text-sm text-[#900]">
+              {touched.phoneNumber && errors.phoneNumber}
+            </div>
+          )}
         </div>
       </section>
     </section>
