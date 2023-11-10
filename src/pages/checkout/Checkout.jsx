@@ -8,7 +8,7 @@ import Billing from "./components/Billing";
 import Payment from "./components/Payment";
 
 const stripePromise = loadStripe(
-  "pk_test_51N6bYMC3vJT26DRM3nL56LTLuFAW7pOW4JOwjfeOS83kh2eKlbIUs9FmhDq1mEZmNJzHHPSXwTGDKL7poYjPLWbG00gSkJynlx"
+  `pk_test_51N6bYMC3vJT26DRM3nL56LTLuFAW7pOW4JOwjfeOS83kh2eKlbIUs9FmhDq1mEZmNJzHHPSXwTGDKL7poYjPLWbG00gSkJynlx`
 );
 
 const initialValues = {
@@ -23,17 +23,6 @@ const initialValues = {
     zipCode: "",
   },
 
-  shippingAddress: {
-    isSameAddress: true,
-    firstName: "",
-    lastName: "",
-    country: "",
-    street1: "",
-    street2: "",
-    city: "",
-    state: "",
-    zipCode: "",
-  },
   email: "",
   phoneNumber: "",
 };
@@ -50,38 +39,6 @@ const checkoutSchema = [
       state: yup.string().required("required"),
       zipCode: yup.string().required("required"),
     }),
-    shippingAddress: yup.object().shape({
-      isSameAddress: yup.boolean(),
-      firstName: yup.string().when("isSameAddress", {
-        is: false,
-        then: yup.string().required("required"),
-      }),
-      lastName: yup.string().when("isSameAddress", {
-        is: false,
-        then: yup.string().required("required"),
-      }),
-      country: yup.string().when("isSameAddress", {
-        is: false,
-        then: yup.string().required("required"),
-      }),
-      street1: yup.string().when("isSameAddress", {
-        is: false,
-        then: yup.string().required("required"),
-      }),
-      street2: yup.string(),
-      city: yup.string().when("isSameAddress", {
-        is: false,
-        then: yup.string().required("required"),
-      }),
-      state: yup.string().when("isSameAddress", {
-        is: false,
-        then: yup.string().required("required"),
-      }),
-      zipCode: yup.string().when("isSameAddress", {
-        is: false,
-        then: yup.string().required("required"),
-      }),
-    }),
   }),
   yup.object().shape({
     email: yup.string().required("required"),
@@ -90,38 +47,37 @@ const checkoutSchema = [
 ];
 
 export default function Checkout() {
-  console.log(stripePromise);
   const [activeStep, setActiveStep] = useState(0);
+
   const cart = useSelector((state) => state.cart.cart);
 
-  async function handleFormSubmit(values, actions) {
+  const handleFormSubmit = async (values, actions) => {
     setActiveStep(activeStep + 1);
-
-    if (activeStep === 0 && values.shippingAddress.isSameAddress) {
-      actions.setFieldValue("shippingAddress", {
-        ...values.billingAddress,
-        isSameAddress: true,
-      });
-    }
 
     if (activeStep === 1) {
       makePayment(values);
     }
     actions.setTouched({});
-  }
+  };
 
   async function makePayment(values) {
     const stripe = await stripePromise;
     const requestBody = {
-      userName: [values.firstName, values.lastName].join(" "),
+      userName: [
+        values.billingAddress.firstName,
+        values.billingAddress.lastName,
+      ].join(" "),
       email: values.email,
       products: cart.map(({ id, count }) => ({ id, count })),
     };
+    console.log(requestBody);
     const response = await fetch("http://localhost:1337/api/orders", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(requestBody),
     });
+
+    console.log(response);
     const session = await response.json();
     await stripe.redirectToCheckout({
       sessionId: session.id,

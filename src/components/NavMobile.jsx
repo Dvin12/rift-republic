@@ -18,7 +18,7 @@ export default function NavMobile() {
 
   return (
     <>
-      <section className="fixed z-30 flex items-center justify-between w-full px-6 py-4 text-4xl bg-opacity-95 bg-darkBlack text-lightGrey">
+      <section className="fixed z-30 flex items-center justify-between w-full px-6 py-4 text-4xl bg-opacity-95 bg-darkBlack text-lightGrey xl:hidden">
         <button onClick={handleClick}>
           {isActive ? <AiOutlineClose /> : <HiOutlineMenu />}
         </button>

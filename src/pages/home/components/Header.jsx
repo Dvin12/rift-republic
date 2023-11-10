@@ -10,9 +10,9 @@ export default function Header() {
           YOUR STAGE.
         </p>
       </section>
-      <section className="absolute bottom-0 px-6">
+      {/* <section className="absolute bottom-0 px-6">
         <NewArrivals />
-      </section>
+      </section> */}
     </header>
   );
 }
