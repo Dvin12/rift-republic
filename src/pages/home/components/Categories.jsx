@@ -29,7 +29,7 @@ const category = [
 
 export default function Categories() {
   return (
-    <section className="flex flex-col gap-5 px-4 py-6">
+    <section className="flex flex-col gap-5 px-4 py-6 xl:grid xl:grid-cols-2 xl:px-36 xl:py-12 xl:gap-8 ">
       {category.map((categoryCard, i) => (
         <CategoryCard categoryCard={categoryCard} key={i} />
       ))}

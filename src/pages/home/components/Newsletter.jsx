@@ -37,8 +37,12 @@ export default function Newsletter() {
   return (
     <section>
       <article className="relative ">
-        <img src="./images/brands/background.jpg" alt="" />
-        <div className="absolute top-0 grid items-center w-full h-full grid-cols-2 gap-4 px-20 bg-opacity-50 place-content-center bg-darkBlack">
+        <img
+          src="./images/brands/background.jpg"
+          className=" xl:h-[600px] xl:w-full object-cover"
+          alt=""
+        />
+        <div className="absolute top-0 grid items-center w-full h-full grid-cols-2 gap-4 px-20 bg-opacity-50 xl:px-40 place-content-center bg-darkBlack ">
           {brands.map((brand, i) => (
             <BrandCard brand={brand} key={i} num={i} />
           ))}

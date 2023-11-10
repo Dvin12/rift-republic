@@ -2,8 +2,13 @@ import { Link } from "react-router-dom";
 
 export default function CategoryCard({ categoryCard }) {
   return (
-    <Link to={`/products/${categoryCard.name}`}>
-      <article className="relative flex flex-col items-center justify-center h-[300px] ">
+    <Link
+      to={`/products/${categoryCard.name}`}
+      className={`${categoryCard.name === "accessories" && "col-span-2"}`}
+    >
+      <article
+        className={`relative flex flex-col items-center justify-center h-[300px] xl:h-[400px]`}
+      >
         <img
           src={categoryCard.image}
           alt=""

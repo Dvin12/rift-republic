@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col gap-6 pb-4 bg-darkGrey">
-      <section className="flex flex-col items-center justify-center pt-6 text-center text-lightGrey">
+    <footer className="flex flex-col gap-6 pb-4 xl:flex-row bg-darkGrey xl:py-10 xl:items-start xl:px-36 xl:w-full">
+      <section className="flex flex-col items-center justify-center pt-6 text-center text-lightGrey xl:order-last xl:pt-0 xl:text-left xl:w-1/3 ">
         <Link to={"/"}>
           <span className="text-3xl font-medium font-Koulen">
             RIFT REPUBLIC
@@ -30,7 +30,7 @@ export default function Footer() {
         </ul>
       </section>
 
-      <section className="flex flex-col items-center justify-center text-center text-lightGrey">
+      <section className="flex flex-col items-center justify-center text-center xl:items-start xl:text-left text-lightGrey xl:w-full">
         <span className="mb-1 text-3xl font-medium">Goods</span>
         <div className="w-[15%] h-[1px] bg-lightGrey "></div>
         <ul className="flex flex-col gap-2 my-2 text-lg">
@@ -52,7 +52,7 @@ export default function Footer() {
         </ul>
       </section>
 
-      <section className="flex flex-col items-center justify-center text-center text-lightGrey">
+      <section className="flex flex-col items-center justify-center text-center xl:items-start xl:text-left text-lightGrey xl:w-full">
         <span className="mb-1 text-3xl font-medium">Brands</span>
         <div className="w-[15%] h-[1px] bg-lightGrey "></div>
         <ul className="flex flex-col gap-2 my-2 text-lg">
@@ -88,7 +88,7 @@ export default function Footer() {
         </ul>
       </section>
 
-      <section className="flex flex-col items-center justify-center text-center text-lightGrey">
+      <section className="flex flex-col items-center justify-center text-center xl:text-left xl:items-start text-lightGrey xl:w-full">
         <span className="mb-1 text-3xl font-medium">Information</span>
         <div className="w-[15%] h-[1px] bg-lightGrey "></div>
         <ul className="flex flex-col gap-2 my-2 text-lg">
