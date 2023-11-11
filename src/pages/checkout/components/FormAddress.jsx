@@ -19,8 +19,8 @@ export default function FormAddress({
     getIn(touched, formattedName(field)) && getIn(errors, formattedName(field));
 
   return (
-    <section className="flex flex-col gap-4">
-      <div className="flex flex-col gap-1">
+    <section className="flex flex-col gap-4 xl:grid xl:grid-cols-4">
+      <div className="flex flex-col gap-1 xl:col-span-2">
         <label className="text-sm text-lightGrey">First Name</label>
         <input
           className="w-full p-2 rounded"
@@ -42,7 +42,7 @@ export default function FormAddress({
           </div>
         )}
       </div>
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 xl:col-span-2">
         <label className="text-sm text-lightGrey">Last Name</label>
         <input
           className="w-full p-2 rounded"
@@ -65,7 +65,7 @@ export default function FormAddress({
         )}
       </div>
 
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 xl:col-span-4">
         <label className="text-sm text-lightGrey">Country</label>
         <input
           className="w-full p-2 rounded"
@@ -85,7 +85,7 @@ export default function FormAddress({
           </div>
         )}
       </div>
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 xl:col-span-2">
         <label className="text-sm text-lightGrey">Street</label>
         <input
           className="w-full p-2 rounded"
@@ -107,7 +107,7 @@ export default function FormAddress({
         )}
       </div>
 
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 xl:col-span-2">
         <label className="text-sm text-lightGrey">
           Second Street (optional)
         </label>
@@ -131,7 +131,7 @@ export default function FormAddress({
         )}
       </div>
 
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 xl:col-span-2">
         <label className="text-sm text-lightGrey">City</label>
         <input
           className="w-full p-2 rounded"

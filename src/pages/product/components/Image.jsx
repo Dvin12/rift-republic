@@ -9,7 +9,7 @@ export default function Image({ image, number, setSelectedImage }) {
 
   return (
     <div
-      className="flex items-center justify-center mt-6 bg-[#FFF]"
+      className="flex items-center justify-center mt-6 bg-[#FFF] cursor-pointer"
       onClick={() => handleSelectedImage(number)}
     >
       <img

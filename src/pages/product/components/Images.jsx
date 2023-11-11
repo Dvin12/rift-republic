@@ -8,11 +8,11 @@ export default function Images({ item }) {
 
   return (
     <div>
-      <div className=" bg-lightGrey">
+      <div className=" bg-[#FFF]">
         <img
           src={`http://localhost:1337${url}`}
           alt=""
-          className="w-[400px] h-[300px] object-contain  "
+          className="w-[400px] h-[300px] object-contain xl:w-full "
         />
       </div>
       <div className="flex items-center justify-between gap-4 overflow-hidden ">

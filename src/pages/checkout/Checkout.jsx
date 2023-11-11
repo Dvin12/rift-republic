@@ -85,15 +85,15 @@ export default function Checkout() {
   }
 
   return (
-    <section className="px-6 py-24">
+    <section className="px-6 py-24 xl:px-36 xl:py-40">
       <h2 className="text-2xl font-medium text-center text-lightGrey">
         Checkout
       </h2>
-      <div className="flex items-center justify-center gap-3 my-8 text-lightGrey">
+      <div className="flex items-center justify-center gap-3 my-8 text-lightGrey xl:my-12">
         <span
-          className={`px-3 py-2 font-medium text-lightGrey  ${
+          className={`px-3 py-2 font-medium   ${
             activeStep === 0
-              ? "bg-lightGrey text-darkBlack  border-none"
+              ? "bg-lightGrey text-darkBlack  "
               : " text-opacity-40 border-[1px]"
           } duration-200`}
         >
@@ -101,10 +101,10 @@ export default function Checkout() {
         </span>
 
         <span
-          className={` text-lightGrey font-medium  px-3 py-2 ${
+          className={`  font-medium  px-3 py-2 ${
             activeStep === 0
               ? "text-opacity-40 border-[1px]"
-              : " text-opacity-100 border-none bg-lightGrey text-darkBlack"
+              : " text-opacity-100  bg-lightGrey text-darkBlack"
           } duration-200`}
         >
           Payment
@@ -146,11 +146,15 @@ export default function Checkout() {
               />
             )}
 
-            <div className="flex items-center justify-between gap-2 mt-8">
+            <div
+              className={`flex items-center ${
+                activeStep === 0 ? "justify-center" : " justify-between"
+              }  w-full gap-2 mt-8 xl:gap-10`}
+            >
               {activeStep === 1 && (
                 <button
                   onClick={() => setActiveStep(activeStep - 1)}
-                  className=" border-lightGrey border-[1px] px-4 py-2 text-lightGrey "
+                  className=" border-lightGrey border-[1px] px-4 py-2 text-lightGrey xl:w-full xl:py-3 xl:text-lg "
                 >
                   Back
                 </button>
@@ -158,7 +162,7 @@ export default function Checkout() {
 
               <button
                 type="submit"
-                className=" border-lightGrey border-[1px] px-4 py-2 text-lightGrey "
+                className=" border-lightGrey border-[1px] px-4 py-2 text-lightGrey xl:w-full xl:py-3 xl:text-lg "
               >
                 {activeStep === 0 ? "Next" : "Place Order"}
               </button>

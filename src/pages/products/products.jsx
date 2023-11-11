@@ -62,15 +62,15 @@ export default function Products() {
   ];
 
   return (
-    <section className="pt-20">
-      <div className="px-6 text-lightGrey">
+    <section className="pt-20 xl:pt-36 ">
+      <div className="px-6 text-lightGrey xl:px-36 xl:text-lg xl:py-4">
         <Link to={"/"}>Home</Link> /{" "}
         {type.charAt(0).toUpperCase() + type.slice(1)}
       </div>
-      <h2 className="py-6 text-2xl font-medium text-center capitalize text-lightGrey">
+      <h2 className="py-6 text-2xl font-medium text-center capitalize text-lightGrey xl:py-10 xl:text-3xl">
         {type === "ampFX" ? "Amps & FX" : type}
       </h2>
-      <div className="flex items-center justify-between px-6 ">
+      <div className="flex items-center justify-between px-6 xl:px-36 xl:py-8 ">
         <Filter
           filterValue={filterValue}
           setFilterValue={setFilterValue}
@@ -78,7 +78,7 @@ export default function Products() {
         />
         <Sort sortValue={sortValue} setSortValue={setSortValue} />
       </div>
-      <div className="grid grid-cols-2 gap-5 px-6 my-10 ">
+      <div className="grid grid-cols-2 gap-5 px-6 my-10 xl:px-36 xl:grid-cols-3 xl:gap-6 xl:mb-16 ">
         {filteredItems.map((item) => (
           <Item item={item} key={item.id} />
         ))}

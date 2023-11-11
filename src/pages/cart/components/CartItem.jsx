@@ -17,7 +17,7 @@ export default function CartItem({ item }) {
   } = thumbnail;
 
   return (
-    <div className="flex gap-6 border-b-[1px] py-8 relative ">
+    <div className="flex gap-6 border-b-[1px] py-8 relative xl:py-14">
       <button
         className="absolute top-0 right-0 text-2xl"
         onClick={() => dispatch(removeFromCart({ id: item.id }))}
@@ -28,14 +28,14 @@ export default function CartItem({ item }) {
         <img
           src={`http://localhost:1337${url}`}
           alt=""
-          className="w-[100px] bg-[#fff]"
+          className="w-[100px] bg-[#fff] xl:w-[200px]"
         />
       </div>
       <div className="flex flex-col items-start justify-center w-full">
-        <span className="text-sm">{company}</span>
-        <h5>{model}</h5>
+        <span className="text-sm xl:text-base">{company}</span>
+        <h5 className=" xl:text-xl">{model}</h5>
 
-        <span className="relative border-[1px] px-3 py-1 my-3 h-auto flex items-center justify-between w-1/3">
+        <span className="relative border-[1px] px-3 py-1 my-3 h-auto flex items-center justify-between w-1/3 xl:w-1/6">
           <button
             className=" bottom-0.5 right-3"
             onClick={() => dispatch(decreaseCount({ id: item.id }))}
@@ -51,7 +51,7 @@ export default function CartItem({ item }) {
           </button>
         </span>
       </div>
-      <span className="absolute text-xl font-medium right-2 bottom-2">
+      <span className="absolute text-xl font-medium right-2 bottom-2 xl:bottom-4 xl:text-2xl">
         ${price}
       </span>
     </div>

@@ -29,7 +29,7 @@ export default function Product() {
 
   return (
     <>
-      <section className="px-6 pt-24">
+      <section className="grid items-center justify-center h-screen px-6 pt-24 xl:grid-cols-2 xl:px-36 xl:gap-20 ">
         {isLoading ? (
           <p>loading...</p>
         ) : (

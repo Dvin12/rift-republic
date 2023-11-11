@@ -9,7 +9,7 @@ export default function Billing({
 }) {
   return (
     <section>
-      <h3 className="my-4 text-lg text-center text-lightGrey">
+      <h3 className="my-4 text-lg text-center text-lightGrey xl:text-left xl:text-2xl xl:my-8">
         Billing Information
       </h3>
       <div>

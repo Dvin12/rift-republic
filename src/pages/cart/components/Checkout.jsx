@@ -2,15 +2,10 @@ import { Link } from "react-router-dom";
 
 export default function Checkout({ totalPrice, subTotal }) {
   return (
-    <form className=" border-[1px] p-4 my-12">
-      <section className="flex flex-col justify-center">
-        <span className="text-sm">ADD DISCOUNT CODE</span>
-        <input type="text" className="w-full p-2 text-darkGrey" />
-        <div className="w-[50%] translate-x-1/2 bg-lightGrey h-[1px] mt-4"></div>
-      </section>
-      <section className="py-3 text-sm">
+    <form className=" border-[1px] p-4 my-12 xl:h-fit xl:p-7">
+      <section className="text-sm xl:text-lg ">
         <span className="font-semibold tracking-wide ">TOTAL BREAKDOWN</span>
-        <div className="mt-2">
+        <div className="my-4">
           <div className="flex items-center justify-between">
             <span>SUBTOTAL</span>
             <span>${subTotal}</span>

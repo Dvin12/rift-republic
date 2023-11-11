@@ -11,17 +11,17 @@ export default function Cart() {
   const totalPrice = subTotal + 20;
 
   return (
-    <section className="px-6 pt-24 text-lightGrey">
-      <div className="flex items-center justify-between">
-        <h4 className="text-lg font-medium">Cart</h4>
+    <section className="px-6 pt-24 text-lightGrey xl:px-36 ">
+      <div className="flex items-center justify-between xl:py-10 xl:justify-start xl:gap-10">
+        <h4 className="text-lg font-medium xl:text-xl">Cart</h4>
         <span className="px-3 py-1 font-medium bg-darkGrey">
           {cart.length} {cart.length === 1 ? "Item" : "Items"}
         </span>
       </div>
-      <section>
+      <section className="gap-20 xl:grid xl:grid-cols-2 xl:h-full">
         {cart.length === 0 ? (
-          <p className="flex items-center justify-center text-center my-28">
-            There are no item in the cart
+          <p className="flex items-center justify-center w-full col-span-2 text-center my-28 ">
+            There are no products in the cart.
           </p>
         ) : (
           <>
