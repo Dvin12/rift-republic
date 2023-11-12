@@ -10,7 +10,7 @@ export default function Payment({
       <h3 className="my-4 text-lg text-center text-lightGrey xl:text-left xl:text-2xl">
         Contact Info
       </h3>
-      <section className="flex flex-col gap-4">
+      <section className="flex flex-col gap-4 xl:py-6">
         <div className="flex flex-col gap-1 ">
           <label className="text-sm text-lightGrey">Email</label>
           <input

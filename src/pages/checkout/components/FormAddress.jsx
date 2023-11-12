@@ -19,7 +19,7 @@ export default function FormAddress({
     getIn(touched, formattedName(field)) && getIn(errors, formattedName(field));
 
   return (
-    <section className="flex flex-col gap-4 xl:grid xl:grid-cols-4">
+    <section className="flex flex-col gap-4 xl:py-6 xl:grid xl:grid-cols-4">
       <div className="flex flex-col gap-1 xl:col-span-2">
         <label className="text-sm text-lightGrey">First Name</label>
         <input

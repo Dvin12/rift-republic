@@ -11,7 +11,7 @@ export default function Cart() {
   const totalPrice = subTotal + 20;
 
   return (
-    <section className="px-6 pt-24 text-lightGrey xl:px-36 ">
+    <section className="px-6 pt-24 text-lightGrey xl:px-44 ">
       <div className="flex items-center justify-between xl:py-10 xl:justify-start xl:gap-10">
         <h4 className="text-lg font-medium xl:text-xl">Cart</h4>
         <span className="px-3 py-1 font-medium bg-darkGrey">

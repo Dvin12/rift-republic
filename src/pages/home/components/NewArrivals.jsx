@@ -50,7 +50,7 @@ export default function NewArrivals() {
       </div>
       <Splide
         ref={splideRef}
-        className="py-4 "
+        className="py-4 xl:hidden "
         options={{
           autoplay: true,
           speed: 600,
@@ -70,8 +70,13 @@ export default function NewArrivals() {
           </SplideSlide>
         ))}
       </Splide>
+      <div className="hidden gap-6 my-5 xl:flex">
+        {placeholder.map((item, i) => (
+          <NewArrivalCard item={item} key={i} />
+        ))}
+      </div>
       <button
-        className="absolute text-4xl top-1/2 -right-[17%] text-lightGrey"
+        className="absolute xl:hidden text-4xl top-1/2 -right-[17%] text-lightGrey"
         onClick={nextSlide}
       >
         <IoIosArrowForward />

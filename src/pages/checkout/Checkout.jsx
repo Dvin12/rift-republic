@@ -85,7 +85,7 @@ export default function Checkout() {
   }
 
   return (
-    <section className="px-6 py-24 xl:px-36 xl:py-40">
+    <section className="px-6 py-24 xl:px-44 xl:py-40">
       <h2 className="text-2xl font-medium text-center text-lightGrey">
         Checkout
       </h2>
