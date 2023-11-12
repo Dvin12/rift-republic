@@ -63,11 +63,11 @@ export default function Products() {
 
   return (
     <section className="pt-20 xl:pt-36 ">
-      <div className="px-6 text-lightGrey xl:px-36 xl:text-lg xl:py-4">
+      <div className="px-6 text-lightGrey xl:px-36 xl:text-lg xl:py-10">
         <Link to={"/"}>Home</Link> /{" "}
         {type.charAt(0).toUpperCase() + type.slice(1)}
       </div>
-      <h2 className="py-6 text-2xl font-medium text-center capitalize text-lightGrey xl:py-10 xl:text-3xl">
+      <h2 className="py-6 text-2xl font-medium text-center capitalize text-lightGrey xl:py-4 xl:text-3xl">
         {type === "ampFX" ? "Amps & FX" : type}
       </h2>
       <div className="flex items-center justify-between px-6 xl:px-36 xl:py-8 ">

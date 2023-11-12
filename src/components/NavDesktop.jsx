@@ -19,7 +19,7 @@ export default function NavDesktop() {
 
   return (
     <section
-      className={`fixed z-50 items-center justify-between hidden w-full px-36 py-12 text-xl xl:flex text-[#FFF] ${
+      className={`fixed z-50 items-center justify-between hidden w-full px-36 py-12 text-lg  xl:flex text-[#FFF] ${
         navColour ? "bg-darkBlack " : "bg-transparent"
       } duration-300`}
     >
