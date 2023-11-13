@@ -6,10 +6,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import * as yup from "yup";
 import Billing from "./components/Billing";
 import Payment from "./components/Payment";
-
-const stripePromise = loadStripe(
-  `pk_test_51N6bYMC3vJT26DRM3nL56LTLuFAW7pOW4JOwjfeOS83kh2eKlbIUs9FmhDq1mEZmNJzHHPSXwTGDKL7poYjPLWbG00gSkJynlx`
-);
+import { useNavigate } from "react-router-dom";
 
 const initialValues = {
   billingAddress: {
@@ -25,6 +22,10 @@ const initialValues = {
 
   email: "",
   phoneNumber: "",
+  cardNumber: "",
+  cardName: "",
+  cardExpiration: "",
+  cardCvc: "",
 };
 
 const checkoutSchema = [
@@ -43,45 +44,37 @@ const checkoutSchema = [
   yup.object().shape({
     email: yup.string().required("required"),
     phoneNumber: yup.string().required("required"),
+    cardNumber: yup
+      .string()
+      .required("required")
+      .matches(/^\d{16}$/, "Must be a 16-digit card number"),
+    cardName: yup.string().required("required"),
+    cardExpiration: yup
+      .string()
+      .required("required")
+      .matches(/^(0[1-9]|1[0-2])\/\d{2}$/, "Must be in MM/YY format"),
+    cardCvc: yup
+      .string()
+      .required("required")
+      .matches(/^\d{3,4}$/, "Must be a 3 or 4-digit CVC"),
   }),
 ];
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = useState(0);
+  const navigate = useNavigate();
 
-  const cart = useSelector((state) => state.cart.cart);
-
-  const handleFormSubmit = async (values, actions) => {
+  const handleFormSubmit = (values, actions) => {
     setActiveStep(activeStep + 1);
 
     if (activeStep === 1) {
-      makePayment(values);
+      makePayment();
     }
     actions.setTouched({});
   };
 
-  async function makePayment(values) {
-    const stripe = await stripePromise;
-    const requestBody = {
-      userName: [
-        values.billingAddress.firstName,
-        values.billingAddress.lastName,
-      ].join(" "),
-      email: values.email,
-      products: cart.map(({ id, count }) => ({ id, count })),
-    };
-    console.log(requestBody);
-    const response = await fetch("http://localhost:1337/api/orders", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(requestBody),
-    });
-
-    console.log(response);
-    const session = await response.json();
-    await stripe.redirectToCheckout({
-      sessionId: session.id,
-    });
+  function makePayment() {
+    navigate("/checkout/success");
   }
 
   return (

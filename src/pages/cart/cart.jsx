@@ -20,7 +20,7 @@ export default function Cart() {
       </div>
       <section className="gap-20 xl:grid xl:grid-cols-2 xl:h-full">
         {cart.length === 0 ? (
-          <p className="flex items-center justify-center w-full col-span-2 text-center my-28 ">
+          <p className="flex items-center justify-center w-full col-span-2 text-center my-52 ">
             There are no products in the cart.
           </p>
         ) : (
