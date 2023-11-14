@@ -13,6 +13,7 @@
     "@reduxjs/toolkit": "^1.9.7",
     "@splidejs/react-splide": "^0.7.12",
     "@stripe/stripe-js": "^2.1.11",
+    "@supabase/supabase-js": "^2.38.4",
     "formik": "^2.4.5",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",

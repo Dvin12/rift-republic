@@ -6,6 +6,7 @@ import { setItems } from "../../redux/slice";
 import Filter from "./components/Filter";
 import Sort from "./components/Sort";
 import Item from "./components/Item";
+import { getSupaItems } from "../../services/apiItems";
 
 export default function Products() {
   const [filterValue, setFilterValue] = useState("all");
@@ -26,40 +27,39 @@ export default function Products() {
 
   // fetch data
   async function getItems() {
-    const items = await fetch(
-      "http://localhost:1337/api/items?populate=thumbnail",
-      { method: "GET" }
-    );
-    const data = await items.json();
-    dispatch(setItems(data.data));
+    const items = await getSupaItems();
+
+    dispatch(setItems(items));
   }
 
   useEffect(() => {
     getItems();
   }, []);
 
+  useEffect(function () {
+    getSupaItems().then((data) => console.log(data));
+  }, []);
+
   // Filter by type and company name
 
   const filteredItems = items.filter((item) => {
     return (
-      item.attributes.category === type &&
-      (filterValue === "all" || item.attributes.company === filterValue)
+      item.category === type &&
+      (filterValue === "all" || item.company === filterValue)
     );
   });
 
   // Sort by price
 
   if (sortValue === "highLow") {
-    filteredItems.sort((a, b) => b.attributes.price - a.attributes.price);
+    filteredItems.sort((a, b) => b.price - a.price);
   } else if (sortValue === "lowHigh") {
-    filteredItems.sort((a, b) => a.attributes.price - b.attributes.price);
+    filteredItems.sort((a, b) => a.price - b.price);
   }
 
   // Get all the company names into an array that are from the type
 
-  const companies = [
-    ...new Set(filteredItems.map((item) => item.attributes.company)),
-  ];
+  const companies = [...new Set(filteredItems.map((item) => item.company))];
 
   return (
     <section className="pt-20 xl:pt-36 ">
@@ -67,7 +67,7 @@ export default function Products() {
         <Link to={"/"}>Home</Link> /{" "}
         {type.charAt(0).toUpperCase() + type.slice(1)}
       </div>
-      <h2 className="py-6 text-2xl font-medium text-center capitalize text-lightGrey xl:py-4 xl:text-3xl">
+      <h2 className="py-6 text-2xl font-medium text-center capitalize text-lightGrey xl:py-4 xl:text-4xl">
         {type === "ampFX" ? "Amps & FX" : type}
       </h2>
       <div className="flex items-center justify-between px-6 xl:px-44 xl:py-8 ">
@@ -78,7 +78,7 @@ export default function Products() {
         />
         <Sort sortValue={sortValue} setSortValue={setSortValue} />
       </div>
-      <div className="grid grid-cols-2 gap-5 px-6 my-10 xl:px-44 xl:grid-cols-3 xl:gap-6 xl:mb-16 ">
+      <div className="grid grid-cols-2 gap-5 px-6 my-10 xl:px-44 xl:grid-cols-4 xl:gap-8 xl:mb-16 ">
         {filteredItems.map((item) => (
           <Item item={item} key={item.id} />
         ))}

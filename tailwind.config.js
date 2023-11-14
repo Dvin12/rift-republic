@@ -10,6 +10,7 @@ export default {
       blue: "#0E8388",
       lightGrey: "#CBE4DE",
       lightYellow: "#F6FDC3",
+      white: "#FFF",
     },
     fontFamily: {
       Koulen: ["Koulen"],

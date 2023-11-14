@@ -2,26 +2,28 @@ import { useState } from "react";
 import Image from "./Image";
 
 export default function Images({ item }) {
-  const { images } = item.attributes;
   const [selectedImage, setSelectedImage] = useState(0);
-  const url = images.data[selectedImage].attributes.url;
+
+  const images = Object.keys(item)
+    .filter((key) => key.startsWith("image") && item[key] !== null)
+    .map((key) => item[key]);
 
   return (
     <div>
       <div className=" bg-[#FFF]">
         <img
-          src={`http://localhost:1337${url}`}
+          src={images[selectedImage]}
           alt=""
           className="w-[400px] h-[300px] object-contain xl:w-full "
         />
       </div>
       <div className="flex items-center justify-between gap-4 overflow-hidden ">
-        {images.data.map((image, i) => (
+        {images.map((image, i) => (
           <Image
-            key={i}
-            image={image}
-            number={i}
             setSelectedImage={setSelectedImage}
+            key={i}
+            number={i}
+            image={image}
           />
         ))}
       </div>

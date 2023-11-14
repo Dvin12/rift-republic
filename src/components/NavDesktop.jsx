@@ -19,30 +19,30 @@ export default function NavDesktop() {
 
   return (
     <section
-      className={`fixed z-50 items-center justify-between hidden w-full px-44 py-12 text-lg  xl:flex text-[#FFF] ${
+      className={`fixed z-50 items-center justify-between hidden w-full px-44 py-12 text-lg  xl:flex text-white ${
         navColour ? "bg-darkBlack " : "bg-transparent"
       } duration-300`}
     >
       <ul className="flex gap-10 ">
         <li className="flex flex-col items-center justify-center transition group">
           <Link to={"/products/acoustic"}>Acoustic</Link>
-          <span className="w-0 group-hover:w-[60%] transition-all duration-300 bg-[#FFF] h-[1.5px] block "></span>
+          <span className="w-0 group-hover:w-[60%] transition-all duration-300 bg-white h-[1.5px] block "></span>
         </li>
         <li className="flex flex-col items-center justify-center transition group">
           <Link to={"/products/electric"}>Electric</Link>
-          <span className="w-0 group-hover:w-[60%] transition-all duration-300 bg-[#FFF] h-[1.5px] block "></span>
+          <span className="w-0 group-hover:w-[60%] transition-all duration-300 bg-white h-[1.5px] block "></span>
         </li>
         <li className="flex flex-col items-center justify-center transition group">
           <Link to={"/products/bass"}>Bass</Link>
-          <span className="w-0 group-hover:w-[60%] transition-all duration-300 bg-[#FFF] h-[1.5px] block "></span>
+          <span className="w-0 group-hover:w-[60%] transition-all duration-300 bg-white h-[1.5px] block "></span>
         </li>
         <li className="flex flex-col items-center justify-center transition group">
           <Link to={"/products/ampFX"}>Amps & FX</Link>
-          <span className="w-0 group-hover:w-[60%] transition-all duration-300 bg-[#FFF] h-[1.5px] block "></span>
+          <span className="w-0 group-hover:w-[60%] transition-all duration-300 bg-white h-[1.5px] block "></span>
         </li>
         <li className="flex flex-col items-center justify-center transition group">
           <Link to={"/products/accessories"}>Accessories</Link>
-          <span className="w-0 group-hover:w-[60%] transition-all duration-300 bg-[#FFF] h-[1.5px] block "></span>
+          <span className="w-0 group-hover:w-[60%] transition-all duration-300 bg-white h-[1.5px] block "></span>
         </li>
       </ul>
       <div className="relative">

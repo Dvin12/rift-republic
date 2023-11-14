@@ -1,9 +1,9 @@
-import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import Description from "./components/Description";
 import Images from "./components/Images";
+import { getSupaItemById } from "../../services/apiItems";
 
 export default function Product() {
   const { productId } = useParams();
@@ -12,14 +12,9 @@ export default function Product() {
   const [isLoading, setIsLoading] = useState(true);
 
   async function getInfo() {
-    const item = await fetch(
-      `http://localhost:1337/api/items/${productId}?populate=images&populate=thumbnail`,
-      {
-        method: "GET",
-      }
-    );
-    const data = await item.json();
-    setItem(data.data);
+    const item = await getSupaItemById(productId);
+
+    setItem(item);
     setIsLoading(false);
   }
 

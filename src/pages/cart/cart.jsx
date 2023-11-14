@@ -6,7 +6,7 @@ export default function Cart() {
   const cart = useSelector((state) => state.cart.cart);
 
   const subTotal = cart.reduce((total, item) => {
-    return total + item.count * item.attributes.price;
+    return total + item.count * item.price;
   }, 0);
   const totalPrice = subTotal + 20;
 

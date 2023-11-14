@@ -6,7 +6,7 @@ export default function Description({ item }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { model, company, price, description } = item.attributes;
+  const { model, company, price, description } = item;
 
   return (
     <article className="flex flex-col items-start justify-center gap-4 my-14 text-lightGrey">

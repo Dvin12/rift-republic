@@ -8,13 +8,7 @@ import {
 
 export default function CartItem({ item }) {
   const dispatch = useDispatch();
-  const { company, model, price, thumbnail } = item.attributes;
-
-  const {
-    data: {
-      attributes: { url },
-    },
-  } = thumbnail;
+  const { company, model, price, thumbnail } = item;
 
   return (
     <div className="flex gap-6 border-b-[1px] py-8 relative xl:py-14">
@@ -26,7 +20,7 @@ export default function CartItem({ item }) {
       </button>
       <div className="flex">
         <img
-          src={`http://localhost:1337${url}`}
+          src={thumbnail}
           alt=""
           className="w-[100px] bg-[#fff] xl:w-[200px]"
         />
