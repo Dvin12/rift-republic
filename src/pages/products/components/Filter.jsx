@@ -44,17 +44,13 @@ export default function Filter({ setFilterValue, companies }) {
         />
       </button>
       {isOpen && (
-        <ul className="absolute z-40 flex flex-col w-auto gap-2 px-4 py-3 text-lg -left-1 top-8 bg-darkBlack xl:text-xl xl:px-6 xl:py-5 xl:w-[300px]">
+        <ul className="absolute z-40 flex flex-col w-[140px] gap-3 px-4 py-3 text-lg -left-1 top-8 bg-darkBlack xl:text-xl xl:px-6 xl:py-5 xl:w-[300px]">
           <label className=" border-b-[1px] my-2">Brands</label>
           <li
             className="flex items-center justify-between cursor-pointer"
             onClick={() => handleFilterSelect("all")}
           >
             All
-            <span className="text-sm">
-              ({companies.reduce((total, company) => total + company.length, 0)}
-              )
-            </span>
           </li>
           {companies.map((company, i) => (
             <li
@@ -63,7 +59,6 @@ export default function Filter({ setFilterValue, companies }) {
               onClick={() => handleFilterSelect(company)}
             >
               {company}
-              <span className="text-sm">({company.length})</span>
             </li>
           ))}
         </ul>

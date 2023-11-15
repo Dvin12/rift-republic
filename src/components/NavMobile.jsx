@@ -36,8 +36,7 @@ export default function NavMobile() {
           isActive ? "translate-x-0" : "-translate-x-full "
         }  bg-darkBlack bg-opacity-95 top-[4.2rem]  transition-all z-30`}
       >
-        <Search />
-        <ul className="flex flex-col justify-center gap-10 my-10 text-3xl tracking-tight text-lightGrey">
+        <ul className="flex flex-col justify-center gap-10 text-3xl tracking-tight my-14 text-lightGrey">
           <li className="border-b-[1px]" onClick={handleClick}>
             <Link to={`products/acoustic`}>Acoustic</Link>
           </li>
@@ -54,7 +53,7 @@ export default function NavMobile() {
             <Link to={`products/accessories`}>Accessories</Link>
           </li>
         </ul>
-        <section className="flex items-center justify-center gap-4 text-4xl pt-14 text-lightGrey">
+        <section className="flex items-center justify-center gap-4 pt-24 text-4xl text-lightGrey">
           <button>
             <a href="#">
               <FaXTwitter />

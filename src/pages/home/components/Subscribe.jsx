@@ -11,7 +11,9 @@ export default function Subscribe() {
         className="w-full px-4 py-2 rounded xl:w-1/3 xl:py-3"
         placeholder="Email address"
       />
-      <Buttton>SUBSCRIBE</Buttton>
+      <button className="border-[1px] border-lightGrey px-6 py-2 text-lightGrey text-lg font-medium">
+        SUBSCRIBE
+      </button>
     </form>
   );
 }

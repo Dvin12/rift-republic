@@ -40,9 +40,9 @@ export default function Newsletter() {
         <img
           src="./images/brands/background.jpg"
           className=" xl:h-[420px] xl:w-full object-cover"
-          alt=""
+          alt="guitar"
         />
-        <div className="absolute top-0 grid items-center w-full h-full grid-cols-2 gap-4 px-20 bg-opacity-75 xl:px-44 place-content-center bg-darkBlack ">
+        <div className="absolute top-0 grid items-center w-full h-full grid-cols-2 gap-4 px-20 bg-opacity-75 place-content-center bg-darkBlack ">
           {brands.map((brand, i) => (
             <BrandCard brand={brand} key={i} num={i} />
           ))}

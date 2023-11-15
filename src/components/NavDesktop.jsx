@@ -8,7 +8,7 @@ export default function NavDesktop() {
   const [navColour, setNavColour] = useState(false);
 
   function changeNavColour() {
-    if (window.scrollY >= 140) {
+    if (window.scrollY >= 20) {
       setNavColour(true);
     } else {
       setNavColour(false);
