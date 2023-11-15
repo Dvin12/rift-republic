@@ -27,7 +27,9 @@ export default function Product() {
     <>
       <section className="grid items-center justify-center px-6 pt-24 xl:h-screen xl:grid-cols-2 xl:px-44 xl:gap-20 ">
         {isLoading ? (
-          <p className=" animate-spin">loading...</p>
+          <p className="flex items-center justify-center w-full col-span-2 text-white">
+            loading...
+          </p>
         ) : (
           <>
             <Images item={item} />

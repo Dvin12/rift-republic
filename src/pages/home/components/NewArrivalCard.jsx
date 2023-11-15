@@ -1,14 +1,22 @@
+import { Link } from "react-router-dom";
+
 export default function NewArrivalCard({ item }) {
+  const { thumbnail, model, id } = item;
+
   return (
-    <div className="flex flex-col items-center justify-center gap-1 text-lightGrey xl:gap-2">
-      <div className="flex items-center justify-center bg-lightGrey rounded-3xl ">
-        <img
-          src={item.image}
-          alt=""
-          className=" w-[140px] h-[240px] object-contain xl:w-[120px] xl:h-[230px] "
-        />
+    <Link to={`/product/${id}`}>
+      <div className="flex flex-col items-center justify-center h-[300px] gap-1 text-lightGrey w-full xl:w-[160px] xl:gap-2   ">
+        <div className="flex items-center justify-center h-full bg-white rounded-3xl xl:h-full ">
+          <img
+            src={thumbnail}
+            alt=""
+            className=" w-[140px] h-[220px] object-contain  "
+          />
+        </div>
+        <span className="text-sm font-semibold text-center text-darkBlack ">
+          {model}
+        </span>
       </div>
-      <span>{item.name}</span>
-    </div>
+    </Link>
   );
 }

@@ -2,7 +2,10 @@ import NewArrivalCard from "./NewArrivalCard";
 import { IoIosArrowForward } from "react-icons/io";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setItems } from "../../../redux/slice";
+import { getSupaItems } from "../../../services/apiItems";
 
 const placeholder = [
   {
@@ -33,6 +36,23 @@ const placeholder = [
 
 export default function NewArrivals() {
   const splideRef = useRef(null);
+  const dispatch = useDispatch();
+  const items = useSelector((state) => state.cart.items);
+  const filteredByNewArrivals = items.filter((item) => {
+    return item.newArrival === true;
+  });
+
+  console.log(filteredByNewArrivals);
+
+  async function getItems() {
+    const items = await getSupaItems();
+
+    dispatch(setItems(items));
+  }
+
+  useEffect(() => {
+    getItems();
+  }, []);
 
   const nextSlide = () => {
     if (splideRef.current) {
@@ -64,15 +84,15 @@ export default function NewArrivals() {
           pagination: false,
         }}
       >
-        {placeholder.map((item, i) => (
-          <SplideSlide key={i}>
+        {filteredByNewArrivals.map((item) => (
+          <SplideSlide key={item.id}>
             <NewArrivalCard item={item} />
           </SplideSlide>
         ))}
       </Splide>
-      <div className="hidden gap-6 my-5 xl:flex">
-        {placeholder.map((item, i) => (
-          <NewArrivalCard item={item} key={i} />
+      <div className="hidden my-5 xl:flex">
+        {filteredByNewArrivals.map((item) => (
+          <NewArrivalCard item={item} key={item.id} />
         ))}
       </div>
       <button
