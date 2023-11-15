@@ -6,8 +6,8 @@ export default function Payment({
   handleChange,
 }) {
   return (
-    <section className=" border-[1px] p-6 border-lightGrey rounded-sm relative">
-      <h3 className="absolute px-4 text-lg text-center bg-black -top-4 S text-lightGrey xl:text-left xl:text-2xl">
+    <section className=" xl:border-[1px] xl:p-6 border-lightGrey rounded-sm relative">
+      <h3 className="px-4 pb-6 text-lg text-center bg-black xl:pb-0 xl:absolute xl:-top-4 S text-lightGrey xl:text-left xl:text-2xl">
         Payment Info
       </h3>
       <section className="flex flex-col gap-8 xl:py-6">
@@ -63,11 +63,11 @@ export default function Payment({
           )}
         </div>
       </section>
-      <h3 className="text-lg text-center text-lightGrey xl:text-left xl:text-xl">
+      <h3 className="py-6 text-lg text-center xl:py-0 text-lightGrey xl:text-left xl:text-xl">
         Credit Card Details
       </h3>
       <section className="grid w-full grid-cols-4 gap-8 xl:py-6">
-        <div className="relative flex flex-col col-span-2 gap-1">
+        <div className="relative flex flex-col col-span-4 gap-1 xl:col-span-2 ">
           <label className="absolute px-2 text-sm text-white bg-black left-2 -top-3 ">
             Card Number
           </label>
@@ -93,7 +93,7 @@ export default function Payment({
           )}
         </div>
 
-        <div className="relative flex flex-col col-span-2 gap-1 ">
+        <div className="relative flex flex-col col-span-4 gap-1 xl:col-span-2 ">
           <label className="absolute px-2 text-sm text-white bg-black left-2 -top-3 ">
             Name
           </label>
@@ -119,7 +119,7 @@ export default function Payment({
           )}
         </div>
 
-        <div className="relative flex flex-col w-full col-span-3 gap-1">
+        <div className="relative flex flex-col w-full col-span-2 gap-1 xl:col-span-3">
           <label className="absolute px-2 text-sm text-white bg-black left-2 -top-3 ">
             Card Expiration
           </label>
@@ -144,7 +144,7 @@ export default function Payment({
           )}
         </div>
 
-        <div className="relative flex flex-col gap-1 ">
+        <div className="relative flex flex-col col-span-2 gap-1 ">
           <label className="absolute px-2 text-sm text-white bg-black left-2 -top-3 ">
             CVC
           </label>

@@ -1,5 +1,3 @@
-import Buttton from "../../../components/Buttton";
-
 export default function Subscribe() {
   return (
     <form className="flex flex-col items-center justify-center gap-6 px-10 text-center xl:px-0 my-14 xl:flex-row xl:my-20 ">

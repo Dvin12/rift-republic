@@ -142,12 +142,12 @@ export default function Checkout() {
             <div
               className={`flex items-center ${
                 activeStep === 0 ? "justify-center" : " justify-between"
-              }  w-full gap-2 mt-8 xl:gap-10`}
+              }  w-full gap-6 mt-8 xl:gap-10`}
             >
               {activeStep === 1 && (
                 <button
                   onClick={() => setActiveStep(activeStep - 1)}
-                  className=" border-lightGrey border-[1px] px-4 py-2 text-lightGrey xl:w-full xl:py-3 xl:text-lg "
+                  className=" border-lightGrey border-[1px] px-4 text-lightGrey w-1/2 py-3 xl:text-lg "
                 >
                   Back
                 </button>
@@ -155,7 +155,7 @@ export default function Checkout() {
 
               <button
                 type="submit"
-                className=" border-lightGrey border-[1px] px-4 py-2 text-lightGrey xl:w-full xl:py-3 xl:text-lg "
+                className=" border-lightGrey border-[1px] px-4  text-lightGrey w-full py-3 xl:text-lg "
               >
                 {activeStep === 0 ? "Next" : "Place Order"}
               </button>

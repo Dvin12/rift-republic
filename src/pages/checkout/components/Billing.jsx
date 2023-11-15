@@ -8,8 +8,8 @@ export default function Billing({
   handleChange,
 }) {
   return (
-    <section className=" border-[1px] xl:py-4 xl:px-6 border-lightGrey rounded-sm relative">
-      <h3 className="absolute px-4 text-lg text-center bg-black -top-4 S text-lightGrey xl:text-left xl:text-2xl ">
+    <section className=" xl:border-[1px] xl:py-4 xl:px-6 border-lightGrey rounded-sm relative ">
+      <h3 className="pb-8 text-lg text-center bg-black xl:absolute xl:-top-4 text-lightGrey xl:text-left xl:text-2xl xl:pb-0 xl:px-4">
         Billing Information
       </h3>
       <div>

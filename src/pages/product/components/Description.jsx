@@ -8,6 +8,14 @@ export default function Description({ item }) {
 
   const { model, company, price, description } = item;
 
+  function handleClick() {
+    dispatch(
+      addToCart({
+        item: { ...item, count: 1 },
+      })
+    );
+  }
+
   return (
     <article className="flex flex-col items-start justify-center gap-4 my-14 text-lightGrey">
       <span>{company}</span>
@@ -19,13 +27,7 @@ export default function Description({ item }) {
       <div className="flex items-center justify-between w-full my-2 xl:justify-start xl:gap-10 xl:my-4 ">
         <button
           className=" border-[1px] px-6 py-2 text-lg"
-          onClick={() =>
-            dispatch(
-              addToCart({
-                item: { ...item, count: 1 },
-              })
-            )
-          }
+          onClick={handleClick}
         >
           Add to cart
         </button>

@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import CartItems from "./components/CartItems";
 import Checkout from "./components/Checkout";
+import { Toaster } from "react-hot-toast";
 
 export default function Cart() {
   const cart = useSelector((state) => state.cart.cart);
@@ -30,6 +31,11 @@ export default function Cart() {
           </>
         )}
       </section>
+      <Toaster
+        toastOptions={{
+          duration: 800,
+        }}
+      />
     </section>
   );
 }

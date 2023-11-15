@@ -36,10 +36,6 @@ export default function Products() {
     getItems();
   }, []);
 
-  useEffect(function () {
-    getSupaItems().then((data) => console.log(data));
-  }, []);
-
   // Filter by type and company name
 
   const filteredItems = items.filter((item) => {
