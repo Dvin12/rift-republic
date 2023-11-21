@@ -7,33 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { setItems } from "../../../redux/slice";
 import { getSupaItems } from "../../../services/apiItems";
 
-const placeholder = [
-  {
-    name: "Gibson Les Paul",
-    image: "./images/placeholder1.png",
-  },
-
-  {
-    name: "Fender",
-    image: "./images/placeholder2.png",
-  },
-
-  {
-    name: "Bass",
-    image: "./images/placeholder3.png",
-  },
-
-  {
-    name: "Bass",
-    image: "./images/placeholder3.png",
-  },
-
-  {
-    name: "Gibson Les Paul",
-    image: "./images/placeholder1.png",
-  },
-];
-
 export default function NewArrivals() {
   const splideRef = useRef(null);
   const dispatch = useDispatch();
@@ -78,7 +51,32 @@ export default function NewArrivals() {
           type: "loop",
           fixedWidth: "10rem",
           snap: true,
-          width: 290,
+          breakpoints: {
+            1279: {
+              width: 900,
+            },
+            1095: {
+              width: 780,
+            },
+            965: {
+              width: 680,
+            },
+            840: {
+              width: 480,
+            },
+            605: {
+              width: 380,
+            },
+            485: {
+              width: 300,
+            },
+            390: {
+              width: 270,
+            },
+            320: {
+              width: 240,
+            },
+          },
           gap: "1rem",
           arrows: false,
           pagination: false,

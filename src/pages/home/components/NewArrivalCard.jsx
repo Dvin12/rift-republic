@@ -13,7 +13,7 @@ export default function NewArrivalCard({ item }) {
             className=" w-[140px] h-[220px] object-contain  "
           />
         </div>
-        <span className="text-sm font-semibold text-center text-darkBlack ">
+        <span className="text-sm font-semibold text-center text-white ">
           {model}
         </span>
       </div>
