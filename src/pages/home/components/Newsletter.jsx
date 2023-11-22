@@ -39,7 +39,7 @@ export default function Newsletter() {
       <article className="relative ">
         <img
           src="./images/brands/background.jpg"
-          className=" xl:h-[420px] xl:w-full object-cover"
+          className=" xl:h-[420px] md:w-full object-cover md:h-[540px]"
           alt="guitar"
         />
         <div className="absolute top-0 grid items-center w-full h-full grid-cols-2 gap-4 px-20 bg-opacity-75 place-content-center bg-darkBlack ">

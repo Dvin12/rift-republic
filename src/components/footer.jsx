@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col gap-6 pb-4 bg-opacity-30 xl:flex-row bg-darkGrey xl:py-10 xl:items-start xl:px-44 xl:w-full">
+    <footer className="flex flex-col gap-6 pb-4 bg-opacity-30 xl:flex-row bg-darkGrey xl:py-10 xl:items-start 2xl:px-44 xl:px-24 xl:w-full">
       <section className="flex flex-col items-center justify-center pt-6 text-2xl text-center text-lightGrey xl:order-last xl:pt-0 xl:text-left xl:w-1/3 ">
         <Link to={"/"}>
           <span className="font-medium font-Koulen text-lightYellow">

@@ -29,7 +29,7 @@ export default function CartItem({ item }) {
         <span className="text-sm xl:text-base">{company}</span>
         <h5 className=" xl:text-xl">{model}</h5>
 
-        <span className="relative border-[1px] px-3 py-1 my-3 h-auto flex items-center justify-between w-1/3 xl:w-1/6">
+        <span className="relative border-[1px] px-3 py-1 my-3 h-auto flex items-center justify-between w-1/3 xl:w-1/4 2xl:w-1/5">
           <button
             className=" bottom-0.5 right-3"
             onClick={() => dispatch(decreaseCount({ id: item.id }))}

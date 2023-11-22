@@ -3,9 +3,13 @@ export default function BrandCard({ brand, num }) {
     <div
       className={`${
         num === 4 ? "   col-span-2  w-[50%] translate-x-1/2" : ""
-      } xl:items-center xl:flex xl:justify-center`}
+      } md:items-center md:flex md:justify-center`}
     >
-      <img src={brand.image} alt={brand.name} className="xl:w-[24%] " />
+      <img
+        src={brand.image}
+        alt={brand.name}
+        className="xl:w-[24%] md:w-1/2 "
+      />
     </div>
   );
 }

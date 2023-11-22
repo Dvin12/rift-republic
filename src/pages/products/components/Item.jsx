@@ -5,7 +5,7 @@ export default function Item({ item }) {
 
   return (
     <Link to={`/product/${id}`}>
-      <div className="w-full h-[340px] xl:h-[600px]  bg-[#fff]   flex flex-col items-center justify-end   relative overflow-hidden text-lightGrey font-medium rounded-sm shadow-lg ">
+      <div className="w-full h-[340px] xl:h-[650px]  bg-[#fff]   flex flex-col items-center justify-end   relative overflow-hidden text-lightGrey font-medium rounded-sm shadow-lg ">
         <img
           src={thumbnail}
           alt=""
