@@ -1,8 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
 
+const items =
+  localStorage.getItem("cartItems") !== null
+    ? JSON.parse(localStorage.getItem("cartItems"))
+    : [];
+
+function setLocalStorage(state) {
+  localStorage.setItem("cartItems", JSON.stringify(state));
+}
+
 const initialState = {
-  cart: [],
+  cart: items,
   items: [],
 };
 
@@ -25,10 +34,12 @@ export const cartSlice = createSlice({
         state.cart = [...state.cart, newItem];
         toast.success("Product was added to the cart!");
       }
+      setLocalStorage(state.cart.map((item) => item));
     },
     removeFromCart: (state, action) => {
       state.cart = state.cart.filter((item) => item.id !== action.payload.id);
       toast.error("Product was removed from the cart");
+      setLocalStorage(state.cart.map((item) => item));
     },
 
     increaseCount: (state, action) => {
